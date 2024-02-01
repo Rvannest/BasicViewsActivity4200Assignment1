@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
-        textView.setText("TextView Updated from Java code");
+        textView.setText("This is an example of TextView");
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
