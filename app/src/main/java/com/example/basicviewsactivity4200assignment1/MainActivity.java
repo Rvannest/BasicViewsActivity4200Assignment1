@@ -38,27 +38,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setContentView(R.layout.activity_main);
-
-        textView = findViewById(R.id.textView);
-
-        textView.setText("TextView Updated from Java code");
-
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "TextView Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
         setSupportActionBar(binding.toolbar);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -71,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAnchorView(R.id.fab)
                         .setAction("Action", null).show();
+            }
+        });
+
+        textView = findViewById(R.id.textView);
+
+        textView.setText("TextView Updated from Java code");
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "TextView Clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }
