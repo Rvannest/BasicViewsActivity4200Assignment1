@@ -20,8 +20,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 //for textview
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+//for edittext
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     //textview variable
     private TextView textView;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,22 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "TextView Clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
+        editText = findViewById(R.id.editText);
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    // Handle the done button click
+                    String inputText = editText.getText().toString();
+                    Toast.makeText(MainActivity.this, "Input received: " + inputText, Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                return false;
+            }
+        });
+
     }
 
     @Override
