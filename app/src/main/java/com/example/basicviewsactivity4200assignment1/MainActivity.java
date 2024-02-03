@@ -28,6 +28,9 @@ import android.widget.Toast;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 
+//for checkbox
+import android.widget.CheckBox;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     //textview variable
     private TextView textView;
     private EditText editText;
+    private CheckBox checkbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         textView = findViewById(R.id.textView);
 
         textView.setText("This is an example of TextView");
-
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        editText = findViewById(R.id.editText);
 
+        editText = findViewById(R.id.editText);
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -82,6 +86,16 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+
+        checkbox = findViewById(R.id.checkbox);
+        checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+
+                Toast.makeText(MainActivity.this, checked ? "Checked" : "Unchecked", Toast.LENGTH_SHORT).show();
             }
         });
 
