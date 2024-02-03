@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 //for textview
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,9 @@ import android.view.inputmethod.EditorInfo;
 //for checkbox
 import android.widget.CheckBox;
 
+//for switch
+import android.widget.Switch;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -40,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private EditText editText;
     private CheckBox checkbox;
+    private Switch switchExample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
                 boolean checked = ((CheckBox) v).isChecked();
 
                 Toast.makeText(MainActivity.this, checked ? "Checked" : "Unchecked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        switchExample = findViewById(R.id.switch_example);
+
+        switchExample.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Toast.makeText(MainActivity.this, isChecked ? "Switch is checked" : "Switch is unchecked", Toast.LENGTH_SHORT).show();
             }
         });
 
